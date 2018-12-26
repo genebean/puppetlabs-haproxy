@@ -599,6 +599,8 @@ Main class, includes all other classes.
 
 * `service_manage`: Specifies whether the state of the HAProxy service should be managed by Puppet. Valid options: 'true' and 'false'. Default: 'true'.
 
+* `service_name`: Specifies the name of the HAProxy service. Valid options: a string. Default: 'haproxy'.
+
 * `service_options`: Contents for the `/etc/defaults/haproxy` file on Debian. Defaults to "ENABLED=1\n" on Debian, and is ignored on other systems.
 
 * `sysconfig_options`: Contents for the `/etc/sysconfig/haproxy` file on RedHat(-based) systems. Defaults to OPTIONS="" on RedHat(-based) systems and is ignored on others
@@ -860,6 +862,11 @@ stopped and disabled at boot. Defaults to 'running'
 * `service_manage`:
 Chooses whether the haproxy service state should be managed by puppet at
 all. Defaults to true
+
+* `service_name`:
+The service name for haproxy. Defaults to undef. If no name is given then
+the value computed for $instance_name will be used.
+NOTE: Class['haproxy'] has a different default.
 
 * `global_options`:
 A hash of all the haproxy global options. If you want to specify more
